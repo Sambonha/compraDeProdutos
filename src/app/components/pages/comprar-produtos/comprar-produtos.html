@@ -1,0 +1,19 @@
+<h4>Loja de produtos</h4>
+<p>Preencha os campos para adquirir um produto definindo o seu valor.</p>
+<hr />
+
+<div *ngIf="mensagem()" class="alert alert-success">
+    <strong>{{mensagem() }}</strong>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="comprarProduto()">
+    <div class="mb-3">
+        <label>Nome do produto:</label>
+        <input type="text" class="form-control" formControlName="nomeProduto" />
+    </div>
+    <div class="mb-3">
+        <label>Preço do produto:</label>
+        <input type="number" class="form-control" formControlName="precoProduto" />
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Comprar" [disabled]="formulario.invalid" />
+</form>
